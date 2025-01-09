@@ -1,0 +1,64 @@
+Maven Repository - local, central, remote
+
+Build Lifecycle 
+	- well defined sequence of phases which define the order in which the goals are to be executed
+	- prepare-resources, package, compile,... 
+	- validate -> prepare -> compile -> test -> package -> install
+Maven Plugins 
+	- plugin execution framework where every task is actually done by plugins.
+	- plugin generally provides a set of goals and which can be executed using following syntax: 
+	- mvn [plugin-name]:[goal-name]
+Maven Goal
+	A goal represent the which contributes to the building and managing of a project.
+	it may be bound to 0 or more phases
+	A goal not bound to any build phase could be executed outside the 
+	build lifecycle by direct invocation
+
+Maven Scope
+	- Dependency scope is used to limit the transitivity of a dependency, 
+	  and also to affect the classpath used for various build tasks.
+	There are 6 scopes available:
+	COMPILE
+		This is the default scope, used if none is specified. Compile dependencies are available in all classpaths of a project. 
+		Furthermore, those dependencies are propagated to dependent projects.
+	PROVIDED
+		This is much like compile, but indicates you expect the JDK or a container to provide the dependency at runtime. 
+		For example, when building a web application for the Java Enterprise Edition, you would set the dependency on the 
+		Servlet API and related Java EE APIs to scope provided because the web container provides those classes. 
+		This scope is only available on the compilation and test classpath, and is not transitive.
+	RUNTIME
+		This scope indicates that the dependency is not required for compilation, but is for execution. 
+		It is in the runtime and test classpaths, but not the compile classpath.
+	TEST
+		This scope indicates that the dependency is not required for normal use of the application, 
+		and is only available for the test compilation and execution phases. This scope is not transitive.
+	SYSTEM
+		This scope is similar to provided except that you have to provide the JAR which contains it explicitly. 
+		The artifact is always available and is not looked up in a repository.
+	IMPORT (only available in Maven 2.0.9 or later)
+		This scope is only used on a dependency of type pom in the <dependencyManagement> section. 
+		It indicates that the specified POM should be replaced with the dependencies in that POM's <dependencyManagement> section. 
+		Since they are replaced, dependencies with a scope of import do not actually participate in limiting 
+		the transitivity of a dependency.	
+
+
+
+
+909: maven-archetype-quickstart
+
+To generate a simple java app in command window:-
+=================================================
+mvn archetype:generate -DgroupId=com.sbi.banking -DartifactId=depositApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+To generate a web app in command window:-
+=========================================
+mvn archetype:generate -DgroupId=com.kotak.banking -DartifactId=loanApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+remote -> org.codehaus.mojo.archetypes:ear-javaee7 (Archetype for EAR package using Java EE 7)
+
+To generate a ear app in command window:-
+========================================
+mvn archetype:generate -DgroupId=com.anz.banking -DartifactId=depositEarApp -DarchetypeArtifactId=ear-javaee7 -DinteractiveMode=false
+
+

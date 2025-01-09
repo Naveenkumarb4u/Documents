@@ -1,0 +1,103 @@
+find / -name "xserver.xml"	
+find /u01/softwares/jda/TPO_2016/ -name "boot*"	-> This will search a specified file in root directory
+
+Searching in root for text
+============================
+find / -type f | xargs grep -l ORACLE_HOME=		->To show the files which contain specified string("ORACLE_HOME=") in the specified directory.
+
+To avoid permission warnings
+=============================
+find . -type f | xargs grep -l PersistentTranId 2>/dev/null
+
+
+
+Checking ports in Linux:-
+============================================================================
+ps -ef |grep 7001		-> This will show the port details
+
+lsof -i:7160			-> To list any process listening to the port 7160:
+lsof -i -P -n | grep LISTEN	-> To get list of ports that are listening
+===========================================================================
+netstat -plten |grep java			->It will show the list of processes with port number and process id
+ps -fu wasadmin | grep rtbe
+
+top
+After getting results press "c" to get java PIDs 
+
+or else
+
+top | grep java    -> This will show only java PIDs which are running
+
+kill -9 pid 
+
+Checking ports in AIX:-
+========================================================================================
+
+netstat | grep 58654
+====================================================================================
+
+
+Checking ports in windows:-
+========================================================================================
+netstat -a -o -n				-> will give you the list of ports that are running
+
+netstat -a -o -n | findstr 5001 -> To check a specific port is listening or not
+
+taskkill -F -PID <Your PID>		-> Will kill the specified PID
+
+=========================================================================================
+
+Checking ports in Linux:-
+============================================================================
+ps -ef |grep 7001		-> This will show the port details
+
+lsof -i:7160			-> To list any process listening to the port 7160:
+lsof -i -P -n | grep LISTEN	-> To get list of ports that are listening
+===========================================================================
+netstat -plten |grep java			->It will show the list of processes with port number and process id
+ps -fu wasadmin | grep rtbe
+
+Install java using single command:-
+=======================================
+sudo apt-get install openjdk-8-jdk
+
+
+
+
+
+
+chmod +x installPlatform.bin
+ ./installPlatform.bin
+ ./installPlatform.bin LAX_VM /u01/softwares/java/jdk1.8.0_181/bin/java
+  
+  
+  
+  
+  
+  
+  ./installSCPOWeb.bin LAX_VM /u01/softwares/java/jdk1.8.0_181/bin/java
+  
+  
+  
+  
+  
+  
+  
+  
+  
+==================================================================================================  
+How do you send the SOAP request programmatically?  Use curl?  Which call below to be sent?
+==================================================================================================
+We can do this in many ways. Simplest way is to use curl like below:-
+
+curl  -H "Content-Type: text/xml; charset=utf-8" -H "SOAPAction: refreshSMPCache"  -d @refreshSMPCache.xml -X POST http://md1npdvlnxprmd03:7260/JdaCro/BookingEvalService
+
+Where refreshSMPCache.xml file has the following contents:-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imp="http://www.jda.com/cro/import">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <imp:refreshSMPCache/>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+Likewise, we can invoke any webservice SOAP request by using associated SOAPAction, request.xml file and webservice URL.

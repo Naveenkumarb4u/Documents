@@ -1,0 +1,16 @@
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+export ORACLE_BASE=/u01/softwares/oracle
+export MW_HOME=/u01/softwares/oracle/middleware
+
+# Set to the WLS_HOME
+export WLS_HOME=$MW_HOME/wlserver
+export WL_HOME=$WLS_HOME
+
+export ORACLE_HOME=/u01/softwares/oracle/oc12102
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+
+# Set to the JAVA_HOME
+export JAVA_HOME=/u01/softwares/java/jdk1.8.0_181
+export PATH=$JAVA_HOME/bin:$ORACLE_HOME/bin:$LD_LIBRARY_PATH:$PATH

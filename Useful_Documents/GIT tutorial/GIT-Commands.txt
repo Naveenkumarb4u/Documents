@@ -1,0 +1,54 @@
+How to Check-out the code from specific branch
+------------------------------------------------
+	1. Create a folder where you want to checkout the code from GIT
+		cd /c/<folder name>
+	2. Clone the folder giving the GIT URL
+		git clone <GIT URL>
+		A new folder fdcd will be created.
+	3. Switch to the branch which you want to checkout. 
+	   Checkout the code from the specific branch. Generally we use Dev branch
+		git checkout <GIT BRANCH NAME>
+		You can see all the files of the branch in the folder with the branch name
+---------------------
+How to Check-in the code to a target branch 
+---------------------
+	1. Go to the target branch folder and get the updated code with the below command.
+		git pull --rebase
+	2. Add the new files in the folder which you want to check-in to the target GIT branch.  
+		git add <file-name> (To add the specific file which you want to check in into the GIT)
+		git add . (To add all new files into GIT)
+	3. Commit the code with the comment message about the commit
+		git commit -m '<Commit message>'
+	4. Push the code into GIT.
+		git push
+--------------------
+How to remove files from GIT
+--------------------
+	1. To remove the specific file from GIT, go to the concern folder and run the below commands:
+		git rm <file-name>
+	2. Commit the change with the commit message
+		git commit -m '<Commit message>'
+	3. Push the code
+		git push
+	This will remove your file from the GIT repo.
+--------------------
+Few useful commands in linux
+--------------------
+	1. To check the status of the current repository w.r.t GIT
+		git status
+	2. To get the current history of commands which are executed
+		git history
+	3. List out the files in the current directory
+		ls -ltr
+	4. To list out the hidden files
+		ls -ltra
+	5. Clear the prompt
+		clear
+	6. To copy files from one directory to another:
+		cp <source file> <target file>
+	7. To create directory
+		mkdir <dir name>
+	8. To create/modify file:
+		vi <file name>
+	9. rename a directory / file:
+		mv <source name> <target name>
